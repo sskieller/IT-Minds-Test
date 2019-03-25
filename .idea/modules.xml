@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Graph/Java/Graph.iml" filepath="$PROJECT_DIR$/Graph/Java/Graph.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GuessThePattern/Java/GuessThePattern.iml" filepath="$PROJECT_DIR$/GuessThePattern/Java/GuessThePattern.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SecretAgent/Java/SecretAgent.iml" filepath="$PROJECT_DIR$/SecretAgent/Java/SecretAgent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/StolenTests/Java/StolenTests.iml" filepath="$PROJECT_DIR$/StolenTests/Java/StolenTests.iml" />
+      <module fileurl="file://$PROJECT_DIR$/StringIssue/Java/StringIssue.iml" filepath="$PROJECT_DIR$/StringIssue/Java/StringIssue.iml" />
+      <module fileurl="file://$PROJECT_DIR$/VacationCost/Java/VacationCost.iml" filepath="$PROJECT_DIR$/VacationCost/Java/VacationCost.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WhatTheFind/Java/WhatTheFind.iml" filepath="$PROJECT_DIR$/WhatTheFind/Java/WhatTheFind.iml" />
+    </modules>
+  </component>
+</project>
