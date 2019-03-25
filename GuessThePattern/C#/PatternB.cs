@@ -23,5 +23,12 @@
 }
 
 /* Write your answers and comments below this line
+    Pattern: Abstract class factory?
+
+    Problems this pattern can solve:
+
+    Pros:
+
+    Cons:
 
 */

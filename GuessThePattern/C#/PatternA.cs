@@ -25,5 +25,12 @@ namespace GuessThePattern
 }
 
 /* Write your answers and comments below this line
+    Pattern: Singleton
+
+    Problems this pattern can solve:
+
+    Pros:
+
+    Cons:
 
 */

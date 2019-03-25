@@ -39,5 +39,12 @@ namespace GuessThePattern
 }
 
 /* Write your answers and comments below this line
+    Pattern: Observer pattern
+
+    Problems this pattern can solve:
+
+    Pros:
+
+    Cons:
 
 */

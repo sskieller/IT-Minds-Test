@@ -15,24 +15,31 @@
             //          x4 -> x3 -> x2 -> x1 -> x0
 
             // YOUR SOLUTION GOES HERE
+
+            // First pointer is the one going along the customer "list"
             var firstCustomerPointer = customers;
+            // Last pointer is kept at null until the first pointer reaches a person that is numberFromRight elements from start
             Customers lastCustomerPointer = null;
 
+            // The flag is used to check for numberFromRight elements
             var flag = 0;
 
             while (firstCustomerPointer != null)
             {
+                // If the flag is below numberFromRight - 1 then the lastCustomerPointer stays at 0
                 if (flag < numberFromRight - 1)
                 {
                     flag++;
                     firstCustomerPointer = firstCustomerPointer.Next;
                 }
+                // If the flag is equal to numberFromRight - 1 then the lastCustomerPointer is set to the first pointer given: customers
                 else if (flag == numberFromRight - 1)
                 {
                     flag++;
                     firstCustomerPointer = firstCustomerPointer.Next;
                     lastCustomerPointer = customers;
                 }
+                // Else if the flag is equal to numberFromRight then the lastCustomerPointer follows along the "list" at same pace as firstCustomerPointer
                 else
                 {
                     firstCustomerPointer = firstCustomerPointer.Next;
@@ -41,6 +48,8 @@
 
             }
 
+            // Finally a check on whether lastCustomerPointer is set to anything at all to remove coincidences where the "list" is either not long 
+            // enough or numberFromRight is bigger than the length of the list
             return lastCustomerPointer == null ? "Person non-existing" : lastCustomerPointer.Person;
         }
     }

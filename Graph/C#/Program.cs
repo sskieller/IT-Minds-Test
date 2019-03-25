@@ -1,7 +1,5 @@
 ﻿using System;
 
-
-
 namespace Graph
 {
     internal class Program
@@ -37,7 +35,7 @@ namespace Graph
 
             var finder = new Finder();
 
-            Console.WriteLine(finder.FromRight(currentCustomer, 0));
+            Console.WriteLine(finder.FromRight(currentCustomer, 3));
 
 
             Console.ReadLine();
