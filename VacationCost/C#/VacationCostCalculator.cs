@@ -6,6 +6,8 @@ namespace VacationCost
     {
         public double DistanceToDestination { get; set; }
 
+
+        // TODO: Pattern for inheritance
         public decimal CostOfVacation(string transportMethod)
         {
             switch (transportMethod)

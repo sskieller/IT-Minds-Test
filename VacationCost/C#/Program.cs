@@ -17,6 +17,7 @@ namespace VacationCost
             var transportMethod = args[0];
             var distance = args[1];
 
+            // TODO: Factory pattern
             var calculator = new VacationCostCalculator
             {
                 DistanceToDestination = double.Parse(distance)
