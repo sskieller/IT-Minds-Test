@@ -1,28 +1,53 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Threading;
 
 namespace StringIssue
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             Console.WriteLine("Filling array: ");
+            var strings = Enumerable.Range(0, 40000).Select(s => s.ToString());
+            var enumerable = strings.ToList();
+            const int runTimes = 5;
 
-            var strs = Enumerable.Range(0, 40000).Select(s => s.ToString());
+            long avgPercent = 0;
 
-            Console.WriteLine("Executing inefficient String-Helper method: ");
+            for (var i = 0; i < runTimes; i++)
+            {
+                var oldTime = PrintFunctionTimes(enumerable, StringHelpers.OldMergeStrings);
+                Thread.Sleep(100);
+                var newTime = PrintFunctionTimes(enumerable, StringHelpers.MergeStrings);
+                Thread.Sleep(50);
 
-            var before = DateTime.Now;
+                avgPercent += (oldTime / newTime * 100);
+            }
 
-            var output = StringHelpers.MergeStrings(strs);
-
-            var after = DateTime.Now;
-
-            Console.WriteLine($"Length: {output.Length}");
-            Console.WriteLine("Elapsed time: " + (after - before).TotalMilliseconds);
+            Console.WriteLine($"MergeString is on average {avgPercent / runTimes}% faster than OldMergeString");
 
             Console.ReadLine();
+        }
+
+        public static long PrintFunctionTimes(
+            IEnumerable<string> strings, Func<IEnumerable<string>, string> myFunc)
+        {
+            Console.WriteLine($"Executing String-Helper method {myFunc.Method.Name}: ");
+
+            var sw = new Stopwatch();
+
+            sw.Start();
+            var output = myFunc(strings);
+            sw.Stop();
+
+            Console.WriteLine($"Length: {output.Length}");
+            Console.WriteLine("Elapsed time: " + sw.ElapsedMilliseconds);
+            Console.WriteLine("Elapsed time in ticks: " + sw.ElapsedTicks);
+
+            return sw.ElapsedTicks;
         }
     }
 }
