@@ -2,9 +2,9 @@
 
 namespace VacationCost
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             if (args.Length < 2)
             {
@@ -14,18 +14,32 @@ namespace VacationCost
                 return;
             }
 
+            VacationCostCalculatorFactory factory = null;
+
             var transportMethod = args[0];
             var distance = args[1];
 
-            // TODO: Factory pattern
-            var calculator = new VacationCostCalculator
+            switch (transportMethod.ToLower())
             {
-                DistanceToDestination = double.Parse(distance)
-            };
+                case "car":
+                    factory = new CarCostCalculatorFactory();
+                    break;
+                case "plane":
+                    factory = new PlaneCostCalculatorFactory();
+                    break;
+            }
 
-            var result = calculator.CostOfVacation(transportMethod);
+            if (factory != null)
+            {
+                var vacationCostCalculator = factory.VacationCostCalculator();
 
-            Console.WriteLine(result);
+                vacationCostCalculator.DistanceToDestination = double.Parse(distance);
+                var result = vacationCostCalculator.CostOfVacation();
+
+                Console.WriteLine(result);
+                Console.WriteLine(result);
+            }
+
             Console.ReadLine();
         }
     }
